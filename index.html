@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ascone</title>
+  <link rel="icon" href="./assets/images/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/custom.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: '#1a3c34',
+            sand: '#e9e8de',
+            mint: '#d4e3dc',
+            pale: '#c8d8d2',
+          },
+          fontFamily: {
+            sans: ['DM Sans', 'sans-serif'],
+            serif: ['DM Serif Display', 'serif'],
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0)' },
+              '100%': { transform: 'translateX(-50%)' },
+            },
+            fadeUp: {
+              from: { opacity: '0', transform: 'translateY(20px)' },
+              to: { opacity: '1', transform: 'translateY(0)' },
+            },
+          },
+          animation: {
+            marquee: 'marquee 28s linear infinite',
+            'fade-up-1': 'fadeUp 0.6s ease 0.05s both',
+            'fade-up-2': 'fadeUp 0.6s ease 0.18s both',
+            'fade-up-3': 'fadeUp 0.6s ease 0.30s both',
+            'fade-up-4': 'fadeUp 0.6s ease 0.42s both',
+          },
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="font-sans bg-white text-forest antialiased overflow-x-hidden">
+
+  <!-- ── Announcement Bar ── -->
+  <div id="announcement-bar"
+    class="bg-forest text-white text-sm xl:text-[16px] tracking-wide py-2 px-4 relative">
+    <div class="w-[90%] sm:w-full flex items-center justify-start sm:justify-center gap-2">
+      <span>🚀</span>
+      <span>Session 2026 • Early-bird registration now open</span>
+      <svg class="hidden sm:block" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m9 18 6-6-6-6" />
+      </svg>
+    </div>
+    <button onclick="closeBar()"
+      class="absolute right-4 top-3 text-white/50 hover:text-white transition-colors leading-none">&#x2715;</button>
+  </div>
+
+
+  <!-- ── Navbar ── -->
+  <nav class="max-w-[1320px] mx-auto flex items-center justify-between px-6 md:px-10 py-4 relative z-50">
+
+    <!-- Logo -->
+    <span class="text-2xl font-semibold tracking-tight text-forest">Ascone</span>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center gap-8 text-md xl:text-lg text-gray-600">
+      <a href="#" class="hover:text-forest">Features</a>
+      <a href="#" class="hover:text-forest">Accounts</a>
+      <a href="#" class="hover:text-forest">Company</a>
+      <a href="#" class="hover:text-forest">Insight</a>
+    </div>
+
+    <!-- Right -->
+    <div class="flex items-center gap-4">
+      <a href="#" class="hidden md:inline text-gray-600 hover:text-forest font-medium text-md xl:text-lg">Login</a>
+
+      <a href="#" class="hidden md:flex bg-forest text-white rounded-full px-5 py-2.5 items-center gap-1 text-md xl:text-lg">
+        Sign Up
+        <svg class="w-[16px] lg:w-[18px] h-[16px] lg:h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-width="2" d="m9 18 6-6-6-6" />
+        </svg>
+      </a>
+
+      <!-- Hamburger -->
+      <button id="menuBtn" class="md:hidden z-50">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Backdrop -->
+  <div id="backdrop"
+    class="fixed inset-0 bg-black/30 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 z-40">
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="fixed top-0 left-0 w-full bg-white shadow-xl rounded-b-3xl
+  transform -translate-y-full opacity-0 transition-all duration-300 ease-in-out z-50">
+
+    <!-- Top Bar (Logo + Close) -->
+    <div class="flex items-center justify-between px-6 py-4 border-b">
+      <span class="text-xl font-semibold text-forest">Ascone</span>
+
+      <!-- Close Button -->
+      <button id="closeBtn">
+        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M6 18L18 6" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Menu Links -->
+    <div class="flex flex-col gap-5 p-6">
+      <a href="#" class="text-gray-700 hover:text-forest">Features</a>
+      <a href="#" class="text-gray-700 hover:text-forest">Accounts</a>
+      <a href="#" class="text-gray-700 hover:text-forest">Company</a>
+      <a href="#" class="text-gray-700 hover:text-forest">Insight</a>
+
+      <hr>
+
+      <a href="#" class="text-gray-700 font-medium">Login</a>
+
+      <a href="#" class="bg-forest text-white text-center rounded-full py-2.5 font-medium">
+        Sign Up
+      </a>
+    </div>
+  </div>
+
+
+  <!-- ── Hero ── -->
+  <section
+    class="max-w-[1320px] mx-auto px-6 md:px-10 pt-4 pb-14 flex flex-col lg:flex-row items-center gap-12 lg:gap-14">
+
+    <!-- Left Content -->
+    <div class="flex-1 flex flex-col items-start">
+
+      <p class="animate-fade-up-1 text-[14px] font-semibold uppercase tracking-[0.18em] text-forest mb-5">
+        Try It Now!
+      </p>
+
+      <h1 class="animate-fade-up-2 text-5xl xl:text-[72px] font-semibold text-forest leading-[1.08] mb-7">
+        Change the Way<br />
+        You Use Your<br />
+        <!-- italic serif word — font-style inline is unavoidable since Tailwind has no italic utility for a different font-family -->
+        <span class="font-serif font-normal" style="font-style:italic;">Money</span>
+      </h1>
+
+      <p class="animate-fade-up-3 text-gray-500 text-lg leading-relaxed max-w-[340px] lg:max-w-[80%] mb-9">
+        From your everyday spending, to planning for your future with savings and investments, Ascone helps you get more
+        from your money.
+      </p>
+
+      <div class="animate-fade-up-4 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+        <a href="#"
+          class="bg-forest text-white text-lg font-medium rounded-full px-6 py-3 flex items-center gap-1 hover:opacity-90 transition-opacity">
+          Get Started Now
+          <span> <svg class="w-[18px] h-[18px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-chevron-right-icon lucide-chevron-right">
+              <path d="m9 18 6-6-6-6" />
+            </svg></span>
+
+        </a>
+        <div class="flex flex-col items-center justify-center">
+          <div class="flex text-amber-400 text-2xl leading-none gap-px">
+            ★★★★★
+          </div>
+          <div class="leading-snug">
+            <span class="text-md text-gray-400 underline underline-offset-2 cursor-pointer">from 120+ reviews</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Grid -->
+    <div class="animate-fade-up-3 flex-1 w-full">
+      <img src="./assets/images/hero.jpg" alt="">
+
+    </div>
+  </section>
+
+  <!-- ── Marquee Logo Bar ── -->
+  <div class="border-y border-gray-100 py-7 overflow-hidden">
+    <div class="max-w-[1320px] mx-auto px-6 md:px-10">
+      <div class="flex gap-10 items-center justify-between">
+        <img src="./assets/images/logo-1.png" alt="logo"
+          class="max-w-[80%] flex-shrink-0 hover:opacity-90 transition-opacity duration-300">
+        <img src="./assets/images/logo-2.png" alt="logo"
+          class="max-w-[80%] flex-shrink-0 hover:opacity-90 transition-opacity duration-300">
+        <img src="./assets/images/logo-3.png" alt="logo"
+          class="max-w-[80%] flex-shrink-0 hover:opacity-90 transition-opacity duration-300">
+        <img src="./assets/images/logo-4.png" alt="logo"
+          class="max-w-[80%] flex-shrink-0 hover:opacity-90 transition-opacity duration-300">
+        <img src="./assets/images/logo-5.png" alt="logo"
+          class="max-w-[80%] flex-shrink-0 hover:opacity-90 transition-opacity duration-300">
+      </div>
+    </div>
+  </div>
+
+
+  <!-- about -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-[1320px] mx-auto px-6 md:px-10">
+      <!-- ── Header ── -->
+      <div class="text-center mb-12 md:mb-16">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-forest mb-4">About Us</p>
+        <h2 class="text-4xl md:text-5xl lg:text-6xl text-forest font-semibold leading-[1.1] mb-5">
+          One App for All Your<br />Money Things
+        </h2>
+        <p class="text-gray-400 text-lg leading-relaxed max-w-xs mx-auto">
+          Remove all the friction that stands in the way of your money goals.
+        </p>
+      </div>
+
+      <!-- ── Two Cards ── -->
+      <div class="flex flex-col md:flex-row gap-3">
+
+        <!-- Card 1: Grow savings faster -->
+        <div class="bg-forest p-8 md:p-10 flex flex-col justify-between
+                  w-full md:w-[38%] min-h-[380px] md:min-h-[440px] shrink-0 relative overflow-hidden">
+
+          <h3 class="text-3xl md:text-[42px] text-white font-medium leading-tight">
+            Grow Savings<br />Faster
+          </h3>
+
+          <!-- Amount + Arrow + Bar chart -->
+          <div class="flex flex-col items-center gap-4 mt-6">
+            <img src="./assets/images/about-1.png" alt="image" class="max-w-full">
+
+          </div>
+        </div>
+
+        <!-- Card 2: Send across the global -->
+        <div
+          class="bg-[#effcf5] rounded-bl-[160px] p-8 md:p-10 !pb-0 flex-1 relative overflow-hidden min-h-[380px] md:min-h-[440px]">
+
+          <h3 class="text-3xl md:text-[42px] font-medium text-forest leading-tight mb-8">
+            Send Across the Global
+          </h3>
+
+          <!-- Content area: floating UI elements + globe -->
+          <div class="relative w-full h-full flex flex-col justify-center items-end">
+            <img src="./assets/images/about-2.jpg" alt="image" class="max-w-full">
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── VALUES SECTION ── -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-[1320px] mx-auto px-6 md:px-10">
+
+      <!-- Header row -->
+      <div class="flex flex-col lg:flex-row lg:items-end gap-6 lg:gap-20 mb-12 md:mb-16">
+        <div class="flex-1">
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-forest mb-4">Values</p>
+          <h2 class="text-4xl md:text-5xl lg:text-6xl text-forest font-semibold leading-[1.1] mb-5">
+            Make Your<br />Spend, Well-Spent
+          </h2>
+        </div>
+        <p class="lg:max-w-md text-gray-500 text-lg leading-relaxed lg:pb-2">
+          Manages a diversified group of specialized private credit brands with efficient tech-enabled processes.
+        </p>
+      </div>
+
+      <!-- Cards grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+        <!-- Card 1: Transparency -->
+        <div class="border border-gray-200 p-7 flex flex-col justify-between min-h-[340px]">
+          <div>
+            <!-- Flower / petal icon -->
+            <div class="mb-10 min-h-[52px]">
+              <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="19" cy="19" r="10" stroke="#1a3c34" stroke-width="1.5" />
+                <circle cx="33" cy="19" r="10" stroke="#1a3c34" stroke-width="1.5" />
+                <circle cx="19" cy="33" r="10" stroke="#1a3c34" stroke-width="1.5" />
+                <circle cx="33" cy="33" r="10" stroke="#1a3c34" stroke-width="1.5" />
+              </svg>
+            </div>
+            <h3 class="text-forest text-[24px] font-semibold mb-3">Transparency</h3>
+            <p class="text-gray-400 text-lg leading-relaxed">
+              A departure from the industry norm of ambiguity, Montfort, as a public and finest company.
+            </p>
+          </div>
+          <!-- Arrow button -->
+          <div class="mt-14">
+            <button
+              class="w-14 h-14 rounded-full border border-gray-200 flex items-center justify-center hover:bg-forest hover:border-forest group transition-colors duration-300">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H8M17 7V16" stroke="#1a3c34" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" class="group-hover:stroke-white transition-colors" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 2: Creative expansion -->
+        <div class="border border-gray-200 p-7 flex flex-col justify-between min-h-[340px]">
+          <div>
+            <!-- Infinity / lens icon -->
+            <div class="mb-10 min-h-[52px]">
+              <svg width="58" height="36" viewBox="0 0 58 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 18C20 18 14 6 8 6C2 6 2 30 8 30C14 30 20 18 20 18Z" stroke="#1a3c34" stroke-width="1.5"
+                  stroke-linejoin="round" />
+                <path d="M38 18C38 18 44 6 50 6C56 6 56 30 50 30C44 30 38 18 38 18Z" stroke="#1a3c34" stroke-width="1.5"
+                  stroke-linejoin="round" />
+                <path d="M20 18C20 18 26 6 29 6C32 6 38 18 38 18C38 18 32 30 29 30C26 30 20 18 20 18Z" stroke="#1a3c34"
+                  stroke-width="1.5" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3 class="text-forest text-[24px] font-semibold mb-3">Creative Expansion</h3>
+            <p class="text-gray-400 text-lg leading-relaxed">
+              Ascone proprietary fintech platform helps our subsidiaries locate and manage investments.
+            </p>
+          </div>
+          <div class="mt-14">
+            <button
+              class="w-14 h-14 rounded-full border border-gray-200 flex items-center justify-center hover:bg-forest hover:border-forest group transition-colors duration-300">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H8M17 7V16" stroke="#1a3c34" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" class="group-hover:stroke-white transition-colors" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 3: Private Credit Investments (sand bg, rounded top-right only) -->
+        <div class="bg-sand p-7 rounded-tr-[130px] flex flex-col justify-between min-h-[340px]">
+          <div>
+            <!-- Concentric arcs icon -->
+            <div class="mb-10 min-h-[52px]">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="28" r="8" stroke="#1a3c34" stroke-width="1.5" />
+                <path d="M10 28 A14 14 0 0 1 38 28" stroke="#1a3c34" stroke-width="1.5" fill="none" />
+                <path d="M4  28 A20 20 0 0 1 44 28" stroke="#1a3c34" stroke-width="1.5" fill="none" />
+              </svg>
+            </div>
+            <h3 class="text-forest text-[24px] font-semibold mb-3">Private Credit Investments</h3>
+            <p class="text-gray-500 text-lg leading-relaxed">
+              We provide access to unique private credit investments; a rare but valuable part of a sound investment
+              portfolio.
+            </p>
+          </div>
+          <div class="mt-14">
+            <button
+              class="w-14 h-14 rounded-full bg-forest flex items-center justify-center hover:opacity-80 transition-opacity duration-300">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H8M17 7V16" stroke="white" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ── NUMBERS BANNER ── -->
+  <section
+    class="bg-[url('./assets/images/counter-bg.jpg')] bg-cover bg-center bg-no-repeat relative overflow-hidden py-16 md:py-24">
+
+    <!-- Silk/fabric texture overlay using SVG filter -->
+    <div class="absolute inset-0 opacity-30 pointer-events-none backdrop-blur-[70px]">
+    </div>
+
+    <!-- Gradient sheen layers -->
+
+    <div class="relative max-w-[1320px] mx-auto px-6 md:px-10">
+
+      <div class="text-center mb-12 md:mb-16">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-white/80 mb-4">Numbers</p>
+        <h2 class="text-4xl md:text-5xl lg:text-6xl text-white font-semibold leading-[1.1] mb-5">
+          Market and Build <br>
+          the Solutions
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-6 items-center text-center">
+
+        <!-- Stat 1 -->
+        <div>
+          <p class="text-white font-serif text-6xl md:text-7xl font-light leading-none mb-3">$14B</p>
+          <p class="text-white/80 text-lg">Funds and syndicates</p>
+        </div>
+
+        <!-- Stat 2 -->
+        <div>
+          <p class="text-white font-serif text-6xl md:text-7xl font-light leading-none mb-3">23k+</p>
+          <p class="text-white/80 text-lg">Raised by active startups</p>
+        </div>
+
+        <!-- Stat 3 -->
+        <div>
+          <p class="text-white font-serif text-6xl md:text-7xl font-light leading-none mb-3">150+</p>
+          <p class="text-white/80 text-lg">Investors in network</p>
+        </div>
+
+        <!-- Stat 4 -->
+        <div>
+          <p class="text-white font-serif text-6xl md:text-7xl font-light leading-none mb-3">95%</p>
+          <p class="text-white/80 text-lg">Post-funding survival rate</p>
+        </div>
+
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ SECTION ── -->
+  <section class="max-w-[1320px] mx-auto px-6 md:px-10 py-16 md:py-24">
+    <div class="flex flex-col lg:flex-row gap-12 lg:gap-20">
+
+      <!-- Left label + heading -->
+      <div class="lg:w-[42%] shrink-0">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-forest mb-4">FAQ</p>
+        <h2 class="text-4xl md:text-5xl lg:text-6xl text-forest font-semibold leading-[1.1]">
+          Frequently Asked Questions
+        </h2>
+      </div>
+
+      <!-- Right accordion -->
+      <div class="flex-1 divide-y divide-gray-200">
+
+        <!-- Item 1 -->
+        <div class="faq-item py-5">
+          <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between gap-4 text-left group">
+            <span class="text-forest text-xl font-medium">How sending a bank transfer</span>
+            <span
+              class="faq-icon shrink-0 w-8 h-8 flex items-center justify-center text-gray-400 group-hover:border-forest group-hover:text-forest transition-colors text-[22px] leading-none">+</span>
+          </button>
+          <div class="faq-body mt-4 pr-10">
+            <div>
+              <p class="text-gray-400 text-lg leading-relaxed">
+                To send a bank transfer, navigate to the transfers section in your dashboard, enter the recipient's
+                details, the amount, and confirm the transaction.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2 (open by default) -->
+        <div class="faq-item py-5">
+          <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between gap-4 text-left group">
+            <span class="text-forest text-xl font-semibold">What is the scheduled payments feature?</span>
+            <span
+              class="faq-icon shrink-0 w-8 h-8 flex items-center justify-center text-forest text-[22px] leading-none font-light">×</span>
+          </button>
+          <div class="faq-body mt-4 pr-10">
+            <div>
+              <p class="text-gray-400 text-lg leading-relaxed">
+                The scheduled payments feature allows you to manage all of your subscriptions or recurring payments in
+                one place. This way, you can view details for every payment, which include the amount, frequency,
+                payment dates etc.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="faq-item py-5">
+          <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between gap-4 text-left group">
+            <span class="text-forest text-xl font-medium">How can I reactivate a terminated card?</span>
+            <span
+              class="faq-icon shrink-0 w-8 h-8 flex items-center justify-center text-gray-400 group-hover:border-forest group-hover:text-forest transition-colors text-[22px] leading-none">+</span>
+          </button>
+          <div class="faq-body mt-4 pr-10">
+            <div>
+              <p class="text-gray-400 text-lg leading-relaxed">
+                To reactivate a terminated card, go to your card settings, select the card you'd like to reactivate, and
+                follow the on-screen instructions to restore access.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="faq-item py-5">
+          <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between gap-4 text-left group">
+            <span class="text-forest text-xl font-medium">How about with a refund?</span>
+            <span
+              class="faq-icon shrink-0 w-8 h-8 flex items-center justify-center text-gray-400 group-hover:border-forest group-hover:text-forest transition-colors text-[22px] leading-none">+</span>
+          </button>
+          <div class="faq-body mt-4 pr-10">
+            <div>
+              <p class="text-gray-400 text-lg leading-relaxed">
+                Refunds are typically processed within 3–5 business days. You can track the status of your refund in the
+                transactions section of your account.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="faq-item py-5">
+          <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between gap-4 text-left group">
+            <span class="text-forest text-xl font-medium">How can add money to my account?</span>
+            <span
+              class="faq-icon shrink-0 w-8 h-8 flex items-center justify-center text-gray-400 group-hover:border-forest group-hover:text-forest transition-colors text-[22px] leading-none">+</span>
+          </button>
+          <div class="faq-body mt-4 pr-10">
+            <div>
+              <p class="text-gray-400 text-lg leading-relaxed">
+                You can add money to your account via bank transfer, debit card, or by linking an external account in
+                the funding section of your dashboard.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── CTA BANNER ── -->
+  <section class="max-w-[1320px] mx-auto px-6 md:px-10  py-8">
+    <div class="bg-forest  overflow-hidden relative flex flex-col md:flex-row items-stretch min-h-[320px]">
+
+      <!-- Left content -->
+      <div class="flex-1 p-10 md:p-14 flex flex-col justify-center relative z-10">
+        <h2 class="text-4xl md:text-5xl lg:text-6xl text-white font-medium leading-[1.1] mb-5">
+          Change the Way You<br />
+          Use Your <em class="font-serif" style="font-style:italic;">Money</em>
+        </h2>
+        <p class="text-white/80 text-lg leading-relaxed max-w-lg mb-8">
+          Join over million people who choose Ascone for fast and secure future banking.
+        </p>
+        <div>
+          <a href="#"
+            class="w-fit inline-block bg-white text-forest text-lg font-medium rounded-full px-7 py-3 flex items-center gap-1 hover:bg-white/90 transition-colors">
+            Get Started Now
+            <span> <svg class="w-[18px] h-[18px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m9 18 6-6-6-6"></path>
+              </svg></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right image placeholder -->
+      <div class=" shrink-0 relative flex flex-col  items-center">
+        <img src="./assets/images/star.png" alt="star" class="max-w-[250px] py-4">
+        <div class="bg-[#eaede5] rounded-tr-[100px] pt-14">
+          <img src="./assets/images/cta.png" alt="img" class="max-w-[350px] -mb-[80px]">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="max-w-[1320px] mx-auto px-6 md:px-10  pt-14 pb-6">
+
+    <!-- Top: links + brand -->
+    <div class="flex flex-col lg:flex-row gap-12 lg:gap-8 pb-12 border-b border-gray-100">
+
+      <!-- Nav columns -->
+      <div class="flex-1 grid grid-cols-2 sm:grid-cols-4 gap-8">
+
+        <!-- Account -->
+        <div>
+          <p class="text-forest text-lg font-semibold mb-4">Account</p>
+          <ul class="space-y-2.5">
+            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Saving</a></li>
+            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Join Accounts</a></li>
+            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Crypto</a></li>
+            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Freelance</a></li>
+            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Commodities</a></li>
+          </ul>
+        </div>
+
+        <!-- Help -->
+        <div>
+          <p class="text-forest text-lg font-semibold mb-4">Help</p>
+          <ul class="space-y-2.5">
+            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Customer Help</a></li>
+            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Community</a></li>
+            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Blog</a></li>
+          </ul>
+        </div>
+
+        <!-- Finance -->
+        <div>
+          <p class="text-forest text-lg font-semibold mb-4">Finance</p>
+          <ul class="space-y-2.5">
+            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Cards</a></li>
+            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Linked Accounts</a></li>
+            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Payment</a></li>
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div>
+          <p class="text-forest text-lg font-semibold mb-4">Company</p>
+          <ul class="space-y-2.5">
+            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">About Us</a></li>
+            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Contact</a></li>
+            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Sustainability</a></li>
+            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Career</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Brand + address -->
+      <div class="lg:w-72 shrink-0">
+        <p class="font-sans text-6xl md:text-7xl font-semibold text-forest tracking-tight leading-none mb-6">
+          Ascone
+        </p>
+        <div class="flex flex-col gap-0">
+          <p class="text-gray-500 text-md leading-relaxed">
+            181 Bay Street Bay Wellington Tower,<br />
+            Suite 292 Toronto,<br />
+            Ontario M5J 2T3
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-5">
+      <p class="text-gray-400 text-md">© Ascone Finance Ltd 2026</p>
+      <div class="flex items-center gap-6">
+        <a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Privacy Policy</a>
+        <a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Terms of Use</a>
+      </div>
+    </div>
+
+  </footer>
+  <script src="./assets//script/main.js"></script>
+
+</body>
+
+</html>

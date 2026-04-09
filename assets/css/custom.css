@@ -1,0 +1,15 @@
+ *{
+    box-sizing: border-box;
+ }
+ 
+ .faq-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s ease;
+  }
+  .faq-body.open {
+    grid-template-rows: 1fr;
+  }
+  .faq-body > div {
+    overflow: hidden;
+  }
