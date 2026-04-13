@@ -67,7 +67,7 @@
 
 
   <!-- ── Navbar ── -->
-  <nav class="max-w-[1320px] mx-auto flex items-center justify-between px-6 md:px-10 py-4 relative z-50">
+  <nav class="max-w-[1320px] mx-auto flex items-center justify-between px-6 lg:px-10 py-4 relative z-50">
 
     <!-- Logo -->
     <span class="text-2xl font-semibold tracking-tight text-forest">Ascone</span>
@@ -141,30 +141,30 @@
 
   <!-- ── Hero ── -->
   <section
-    class="max-w-[1320px] mx-auto px-6 md:px-10 pt-4 pb-14 flex flex-col lg:flex-row items-center gap-12 lg:gap-14">
+    class="max-w-[1320px] mx-auto px-6 lg:px-10 pt-4 pb-14 flex flex-col md:flex-row items-center gap-12 lg:gap-14">
 
     <!-- Left Content -->
     <div class="flex-1 flex flex-col items-start">
 
-      <p class="animate-fade-up-1 text-[14px] font-semibold uppercase tracking-[0.18em] text-forest mb-5">
+      <p class="animate-fade-up-1 text-xs lg:text-[14px] font-semibold uppercase tracking-[0.18em] text-forest mb-2 lg:mb-5 mx-auto md:mx-0">
         Try It Now!
       </p>
 
-      <h1 class="animate-fade-up-2 text-5xl xl:text-[72px] font-semibold text-forest leading-[1.08] mb-7">
-        Change the Way<br />
-        You Use Your<br />
+      <h1 class="animate-fade-up-2 text-[36px] sm:text-[42px] md:text-[52px] lg:text-[60px] xl:text-[72px] text-center md:text-start mx-auto md:mx-0 font-semibold text-forest leading-[1.08] mb-4 md:mb-7">
+        Change the Way 
+        You <br class="hidden min-[450px]:block md:hidden"> Use Your 
         <!-- italic serif word — font-style inline is unavoidable since Tailwind has no italic utility for a different font-family -->
         <span class="font-serif font-normal" style="font-style:italic;">Money</span>
       </h1>
 
-      <p class="animate-fade-up-3 text-gray-500 text-lg leading-relaxed max-w-[340px] lg:max-w-[80%] mb-9">
+      <p class="animate-fade-up-3 text-gray-500 text-md xl:text-lg leading-relaxed max-w-[90%] md:max-w-[80%] mx-auto md:mx-0 text-center md:text-start mb-4 md:mb-9">
         From your everyday spending, to planning for your future with savings and investments, Ascone helps you get more
         from your money.
       </p>
 
-      <div class="animate-fade-up-4 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+      <div class="animate-fade-up-4 flex flex-col sm:flex-row items-start sm:items-center gap-6 mx-auto md:mx-0">
         <a href="#"
-          class="bg-forest text-white text-lg font-medium rounded-full px-6 py-3 flex items-center gap-1 hover:opacity-90 transition-opacity">
+          class="bg-forest text-white text-md lg:text-lg font-medium rounded-full px-4 lg:px-6 py-3 flex items-center gap-1 hover:opacity-90 transition-opacity">
           Get Started Now
           <span> <svg class="w-[18px] h-[18px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -173,12 +173,12 @@
             </svg></span>
 
         </a>
-        <div class="flex flex-col items-center justify-center">
+        <div class="flex flex-col items-center justify-center mx-auto md:mx-0">
           <div class="flex text-amber-400 text-2xl leading-none gap-px">
             ★★★★★
           </div>
           <div class="leading-snug">
-            <span class="text-md text-gray-400 underline underline-offset-2 cursor-pointer">from 120+ reviews</span>
+            <span class="text-sm lg:text-md text-gray-400 underline underline-offset-2 cursor-pointer">From 120+ Reviews</span>
           </div>
         </div>
       </div>
@@ -186,73 +186,72 @@
 
     <!-- Right Grid -->
     <div class="animate-fade-up-3 flex-1 w-full">
-      <img src="./assets/images/hero.jpg" alt="">
+      <img src="./assets/images/hero.jpg" alt="hero-banner" class="max-w-full min-[500px]:max-w-[70%] md:max-w-full mx-auto md:mx-0">
 
     </div>
   </section>
 
   <!-- ── Marquee Logo Bar ── -->
   <div class="border-y border-gray-100 py-7 overflow-hidden">
-    <div class="max-w-[1320px] mx-auto px-6 md:px-10">
-      <div class="flex gap-10 items-center justify-between">
+    <div class="max-w-[1320px] mx-auto px-6 lg:px-10">
+      <div class="grid grid-cols-5 gap-3 sm:gap-6 md:gap-10 items-center justify-between">
         <img src="./assets/images/logo-1.png" alt="logo"
-          class="max-w-[80%] flex-shrink-0 hover:opacity-90 transition-opacity duration-300">
+          class="  hover:opacity-90 transition-opacity duration-300">
         <img src="./assets/images/logo-2.png" alt="logo"
-          class="max-w-[80%] flex-shrink-0 hover:opacity-90 transition-opacity duration-300">
+          class="  hover:opacity-90 transition-opacity duration-300">
         <img src="./assets/images/logo-3.png" alt="logo"
-          class="max-w-[80%] flex-shrink-0 hover:opacity-90 transition-opacity duration-300">
+          class="  hover:opacity-90 transition-opacity duration-300">
         <img src="./assets/images/logo-4.png" alt="logo"
-          class="max-w-[80%] flex-shrink-0 hover:opacity-90 transition-opacity duration-300">
+          class="  hover:opacity-90 transition-opacity duration-300">
         <img src="./assets/images/logo-5.png" alt="logo"
-          class="max-w-[80%] flex-shrink-0 hover:opacity-90 transition-opacity duration-300">
+          class="  hover:opacity-90 transition-opacity duration-300">
       </div>
     </div>
   </div>
 
 
   <!-- about -->
-  <section class="py-16 md:py-24">
-    <div class="max-w-[1320px] mx-auto px-6 md:px-10">
+  <section class="py-12 sm:py-16 lg:py-24">
+    <div class="max-w-[1320px] mx-auto px-6 lg:px-10">
       <!-- ── Header ── -->
-      <div class="text-center mb-12 md:mb-16">
-        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-forest mb-4">About Us</p>
-        <h2 class="text-4xl md:text-5xl lg:text-6xl text-forest font-semibold leading-[1.1] mb-5">
-          One App for All Your<br />Money Things
+      <div class="text-center mb-6 md:mb-12 lg:mb-16">
+        <p class="text-xs lg:text-[14px] font-semibold uppercase tracking-[0.18em] text-forest mb-4">About Us</p>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-6xl text-forest font-semibold leading-[1.1] mb-2 lg:mb-5">
+          One App for All Your<br class="hidden min-[400px]:block"/>Money Things
         </h2>
-        <p class="text-gray-400 text-lg leading-relaxed max-w-xs mx-auto">
+        <p class="text-gray-400 text-md lg:text-lg leading-relaxed max-w-xs mx-auto">
           Remove all the friction that stands in the way of your money goals.
         </p>
       </div>
 
       <!-- ── Two Cards ── -->
-      <div class="flex flex-col md:flex-row gap-3">
+      <div class="flex flex-col sm:flex-row gap-3">
 
         <!-- Card 1: Grow savings faster -->
-        <div class="bg-forest p-8 md:p-10 flex flex-col justify-between
-                  w-full md:w-[38%] min-h-[380px] md:min-h-[440px] shrink-0 relative overflow-hidden">
+        <div class="bg-forest p-5 sm:p-8 md:p-10 flex flex-col justify-between
+                  w-full sm:w-[38%] min-h-auto sm:min-h-[280px] md:min-h-[380px] lg:min-h-[440px] shrink-0 relative overflow-hidden">
 
-          <h3 class="text-3xl md:text-[42px] text-white font-medium leading-tight">
-            Grow Savings<br />Faster
+          <h3 class="text-xl sm:text-2xl md:text-3xl lg:text-[42px] text-white font-medium leading-tight">
+            Grow Savings <br class="hidden sm:block" /> Faster
           </h3>
 
           <!-- Amount + Arrow + Bar chart -->
           <div class="flex flex-col items-center gap-4 mt-6">
-            <img src="./assets/images/about-1.png" alt="image" class="max-w-full">
+            <img src="./assets/images/about-1.png" alt="image" class="max-w-[50%] sm:max-w-full">
 
           </div>
         </div>
 
         <!-- Card 2: Send across the global -->
-        <div
-          class="bg-[#effcf5] rounded-bl-[160px] p-8 md:p-10 !pb-0 flex-1 relative overflow-hidden min-h-[380px] md:min-h-[440px]">
+        <div  class="bg-[#effcf5] lg:rounded-bl-[160px] p-5 sm:p-8 md:p-10 !pb-0 flex-1 relative overflow-hidden min-h-auto sm:min-h-[280px] md:min-h-[380px] lg:min-h-[440px]">
 
-          <h3 class="text-3xl md:text-[42px] font-medium text-forest leading-tight mb-8">
+          <h3 class="text-2xl md:text-3xl lg:text-[42px] font-medium text-forest leading-tight mb-8">
             Send Across the Global
           </h3>
 
           <!-- Content area: floating UI elements + globe -->
-          <div class="relative w-full h-full flex flex-col justify-center items-end">
-            <img src="./assets/images/about-2.jpg" alt="image" class="max-w-full">
+          <div class="relative w-full h-full flex flex-col justify-center items-center sm:items-end">
+            <img src="./assets/images/about-2.jpg" alt="image" class="max-w-[90%] sm:max-w-full">
 
           </div>
         </div>
@@ -263,18 +262,18 @@
 
 
   <!-- ── VALUES SECTION ── -->
-  <section class="py-16 md:py-24">
-    <div class="max-w-[1320px] mx-auto px-6 md:px-10">
+  <section class="pb-12 sm:pb-16 lg:pb-24 pt-5 md:pt-10">
+    <div class="max-w-[1320px] mx-auto px-6 lg:px-10">
 
       <!-- Header row -->
-      <div class="flex flex-col lg:flex-row lg:items-end gap-6 lg:gap-20 mb-12 md:mb-16">
-        <div class="flex-1">
-          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-forest mb-4">Values</p>
-          <h2 class="text-4xl md:text-5xl lg:text-6xl text-forest font-semibold leading-[1.1] mb-5">
+      <div class="flex flex-col lg:flex-row lg:items-end gap-3 lg:gap-20 text-center lg:text-start mb-6 md:mb-12 lg:mb-16">
+        <div class="flex-1 ">
+          <p class="text-xs lg:text-[14px] font-semibold uppercase tracking-[0.18em] text-forest mb-4 ">Values</p>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-6xl text-forest  font-semibold leading-[1.1] mb-0">
             Make Your<br />Spend, Well-Spent
           </h2>
         </div>
-        <p class="lg:max-w-md text-gray-500 text-lg leading-relaxed lg:pb-2">
+        <p class="max-w-lg md:max-w-md text-gray-500 text-md lg:text-lg leading-relaxed lg:pb-2 mx-auto lg:mx-0">
           Manages a diversified group of specialized private credit brands with efficient tech-enabled processes.
         </p>
       </div>
@@ -283,27 +282,27 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 
         <!-- Card 1: Transparency -->
-        <div class="border border-gray-200 p-7 flex flex-col justify-between min-h-[340px]">
+        <div class="border border-gray-200 p-5 md:p-7 flex flex-col justify-between min-h-auto md:min-h-[340px]">
           <div>
             <!-- Flower / petal icon -->
-            <div class="mb-10 min-h-[52px]">
-              <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div class="mb-5 xl:mb-10 min-h-[40px] lg:min-h-[52px]">
+              <svg class="w-10 lg:w-[52px] h-10 lg:h-[52px]" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="19" cy="19" r="10" stroke="#1a3c34" stroke-width="1.5" />
                 <circle cx="33" cy="19" r="10" stroke="#1a3c34" stroke-width="1.5" />
                 <circle cx="19" cy="33" r="10" stroke="#1a3c34" stroke-width="1.5" />
                 <circle cx="33" cy="33" r="10" stroke="#1a3c34" stroke-width="1.5" />
               </svg>
             </div>
-            <h3 class="text-forest text-[24px] font-semibold mb-3">Transparency</h3>
-            <p class="text-gray-400 text-lg leading-relaxed">
+            <h3 class="text-forest text-[22px] lg:text-[24px] font-semibold mb-3">Transparency</h3>
+            <p class="text-gray-400 text-md lg:text-lg leading-relaxed">
               A departure from the industry norm of ambiguity, Montfort, as a public and finest company.
             </p>
           </div>
           <!-- Arrow button -->
-          <div class="mt-14">
+          <div class="mt-8 lg:mt-14">
             <button
-              class="w-14 h-14 rounded-full border border-gray-200 flex items-center justify-center hover:bg-forest hover:border-forest group transition-colors duration-300">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
+              class="w-10 lg:w-14 h-10 lg:h-14 rounded-full border border-gray-200 flex items-center justify-center hover:bg-forest hover:border-forest group transition-colors duration-300">
+              <svg class="w-4 lg:w-5 h-4 lg:h-5" viewBox="0 0 24 24" fill="none">
                 <path d="M7 17L17 7M17 7H8M17 7V16" stroke="#1a3c34" stroke-width="2" stroke-linecap="round"
                   stroke-linejoin="round" class="group-hover:stroke-white transition-colors" />
               </svg>
@@ -312,11 +311,11 @@
         </div>
 
         <!-- Card 2: Creative expansion -->
-        <div class="border border-gray-200 p-7 flex flex-col justify-between min-h-[340px]">
+        <div class="border border-gray-200 p-5 md:p-7 flex flex-col justify-between min-h-auto md:min-h-[340px]">
           <div>
             <!-- Infinity / lens icon -->
-            <div class="mb-10 min-h-[52px]">
-              <svg width="58" height="36" viewBox="0 0 58 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div class="mb-5 xl:mb-10 min-h-[40px] lg:min-h-[52px]">
+              <svg class="w-10 lg:w-[58px]" viewBox="0 0 58 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M20 18C20 18 14 6 8 6C2 6 2 30 8 30C14 30 20 18 20 18Z" stroke="#1a3c34" stroke-width="1.5"
                   stroke-linejoin="round" />
                 <path d="M38 18C38 18 44 6 50 6C56 6 56 30 50 30C44 30 38 18 38 18Z" stroke="#1a3c34" stroke-width="1.5"
@@ -325,15 +324,15 @@
                   stroke-width="1.5" stroke-linejoin="round" />
               </svg>
             </div>
-            <h3 class="text-forest text-[24px] font-semibold mb-3">Creative Expansion</h3>
-            <p class="text-gray-400 text-lg leading-relaxed">
+            <h3 class="text-forest text-[22px] lg:text-[24px] font-semibold mb-3">Creative Expansion</h3>
+            <p class="text-gray-400 text-md lg:text-lg leading-relaxed">
               Ascone proprietary fintech platform helps our subsidiaries locate and manage investments.
             </p>
           </div>
-          <div class="mt-14">
+          <div class="mt-8 lg:mt-14">
             <button
-              class="w-14 h-14 rounded-full border border-gray-200 flex items-center justify-center hover:bg-forest hover:border-forest group transition-colors duration-300">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
+              class="w-10 lg:w-14 h-10 lg:h-14 rounded-full border border-gray-200 flex items-center justify-center hover:bg-forest hover:border-forest group transition-colors duration-300">
+              <svg class="w-4 lg:w-5 h-4 lg:h-5" viewBox="0 0 24 24" fill="none">
                 <path d="M7 17L17 7M17 7H8M17 7V16" stroke="#1a3c34" stroke-width="2" stroke-linecap="round"
                   stroke-linejoin="round" class="group-hover:stroke-white transition-colors" />
               </svg>
@@ -342,26 +341,26 @@
         </div>
 
         <!-- Card 3: Private Credit Investments (sand bg, rounded top-right only) -->
-        <div class="bg-sand p-7 rounded-tr-[130px] flex flex-col justify-between min-h-[340px]">
+        <div class="bg-sand p-5 md:p-7 md:rounded-tr-[130px] flex flex-col justify-between min-h-auto md:min-h-[340px]">
           <div>
             <!-- Concentric arcs icon -->
-            <div class="mb-10 min-h-[52px]">
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div class="mb-5 xl:mb-10 min-h-[40px] lg:min-h-[52px]">
+              <svg class="w-10 lg:w-[48px] h-10 lg:h-[48px]" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="24" cy="28" r="8" stroke="#1a3c34" stroke-width="1.5" />
                 <path d="M10 28 A14 14 0 0 1 38 28" stroke="#1a3c34" stroke-width="1.5" fill="none" />
                 <path d="M4  28 A20 20 0 0 1 44 28" stroke="#1a3c34" stroke-width="1.5" fill="none" />
               </svg>
             </div>
-            <h3 class="text-forest text-[24px] font-semibold mb-3">Private Credit Investments</h3>
-            <p class="text-gray-500 text-lg leading-relaxed">
+            <h3 class="text-forest text-[22px] lg:text-[24px] font-semibold mb-3">Private Credit Investments</h3>
+            <p class="text-gray-500 text-md lg:text-lg leading-relaxed">
               We provide access to unique private credit investments; a rare but valuable part of a sound investment
               portfolio.
             </p>
           </div>
-          <div class="mt-14">
+          <div class="mt-8 lg:mt-14">
             <button
-              class="w-14 h-14 rounded-full bg-forest flex items-center justify-center hover:opacity-80 transition-opacity duration-300">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
+              class="w-10 lg:w-14 h-10 lg:h-14 rounded-full bg-forest flex items-center justify-center hover:opacity-80 transition-opacity duration-300">
+              <svg class="w-4 lg:w-5 h-4 lg:h-5" viewBox="0 0 24 24" fill="none">
                 <path d="M7 17L17 7M17 7H8M17 7V16" stroke="white" stroke-width="2" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg>
@@ -376,8 +375,7 @@
 
 
   <!-- ── NUMBERS BANNER ── -->
-  <section
-    class="bg-[url('./assets/images/counter-bg.jpg')] bg-cover bg-center bg-no-repeat relative overflow-hidden py-16 md:py-24">
+  <section class="bg-[url('./assets/images/counter-bg.jpg')] bg-cover bg-center bg-no-repeat relative overflow-hidden py-12 sm:py-16 lg:py-24">
 
     <!-- Silk/fabric texture overlay using SVG filter -->
     <div class="absolute inset-0 opacity-30 pointer-events-none backdrop-blur-[70px]">
@@ -385,40 +383,40 @@
 
     <!-- Gradient sheen layers -->
 
-    <div class="relative max-w-[1320px] mx-auto px-6 md:px-10">
+    <div class="relative max-w-[1320px] mx-auto px-6 lg:px-10">
 
-      <div class="text-center mb-12 md:mb-16">
-        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-white/80 mb-4">Numbers</p>
-        <h2 class="text-4xl md:text-5xl lg:text-6xl text-white font-semibold leading-[1.1] mb-5">
+      <div class="text-center mb-12 lg:mb-16">
+        <p class="text-xs lg:text-[14px] font-semibold uppercase tracking-[0.18em] text-white/80 mb-4">Numbers</p>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-6xl text-white font-semibold leading-[1.1] mb-2 lg:mb-5">
           Market and Build <br>
           the Solutions
         </h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-6 items-center text-center">
+      <div class="grid grid-cols-1 min-[500px]:grid-cols-2 md:grid-cols-4 gap-10 sm:gap-6 items-center text-center">
 
         <!-- Stat 1 -->
         <div>
-          <p class="text-white font-serif text-6xl md:text-7xl font-light leading-none mb-3">$14B</p>
-          <p class="text-white/80 text-lg">Funds and syndicates</p>
+          <p class="text-white font-serif text-5xl md:text-6xl xl:text-7xl font-light leading-none mb-3">$14B</p>
+          <p class="text-white/80 text-md lg:text-lg">Funds and syndicates</p>
         </div>
 
         <!-- Stat 2 -->
         <div>
-          <p class="text-white font-serif text-6xl md:text-7xl font-light leading-none mb-3">23k+</p>
-          <p class="text-white/80 text-lg">Raised by active startups</p>
+          <p class="text-white font-serif text-5xl md:text-6xl xl:text-7xl font-light leading-none mb-3">23k+</p>
+          <p class="text-white/80 text-md lg:text-lg">Raised by active startups</p>
         </div>
 
         <!-- Stat 3 -->
         <div>
-          <p class="text-white font-serif text-6xl md:text-7xl font-light leading-none mb-3">150+</p>
-          <p class="text-white/80 text-lg">Investors in network</p>
+          <p class="text-white font-serif text-5xl md:text-6xl xl:text-7xl font-light leading-none mb-3">150+</p>
+          <p class="text-white/80 text-md lg:text-lg">Investors in network</p>
         </div>
 
         <!-- Stat 4 -->
         <div>
-          <p class="text-white font-serif text-6xl md:text-7xl font-light leading-none mb-3">95%</p>
-          <p class="text-white/80 text-lg">Post-funding survival rate</p>
+          <p class="text-white font-serif text-5xl md:text-6xl xl:text-7xl font-light leading-none mb-3">95%</p>
+          <p class="text-white/80 text-md lg:text-lg">Post-funding survival rate</p>
         </div>
 
 
@@ -428,14 +426,14 @@
   </section>
 
   <!-- ── FAQ SECTION ── -->
-  <section class="max-w-[1320px] mx-auto px-6 md:px-10 py-16 md:py-24">
-    <div class="flex flex-col lg:flex-row gap-12 lg:gap-20">
+  <section class="max-w-[1320px] mx-auto px-6 lg:px-10 py-12 sm:py-16 lg:py-24">
+    <div class="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-20">
 
       <!-- Left label + heading -->
-      <div class="lg:w-[42%] shrink-0">
-        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-forest mb-4">FAQ</p>
-        <h2 class="text-4xl md:text-5xl lg:text-6xl text-forest font-semibold leading-[1.1]">
-          Frequently Asked Questions
+      <div class="lg:w-[42%] shrink-0 text-center lg:text-start">
+        <p class="text-xs lg:text-[14px] font-semibold uppercase tracking-[0.18em] text-forest mb-4">FAQ</p>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-6xl text-forest font-semibold leading-[1.1]">
+          Frequently Asked <br class="block lg:hidden"> Questions
         </h2>
       </div>
 
@@ -451,7 +449,7 @@
           </button>
           <div class="faq-body mt-4 pr-10">
             <div>
-              <p class="text-gray-400 text-lg leading-relaxed">
+              <p class="text-gray-400 text-md lg:text-lg leading-relaxed">
                 To send a bank transfer, navigate to the transfers section in your dashboard, enter the recipient's
                 details, the amount, and confirm the transaction.
               </p>
@@ -468,7 +466,7 @@
           </button>
           <div class="faq-body mt-4 pr-10">
             <div>
-              <p class="text-gray-400 text-lg leading-relaxed">
+              <p class="text-gray-400 text-md lg:text-lg leading-relaxed">
                 The scheduled payments feature allows you to manage all of your subscriptions or recurring payments in
                 one place. This way, you can view details for every payment, which include the amount, frequency,
                 payment dates etc.
@@ -486,7 +484,7 @@
           </button>
           <div class="faq-body mt-4 pr-10">
             <div>
-              <p class="text-gray-400 text-lg leading-relaxed">
+              <p class="text-gray-400 text-md lg:text-lg leading-relaxed">
                 To reactivate a terminated card, go to your card settings, select the card you'd like to reactivate, and
                 follow the on-screen instructions to restore access.
               </p>
@@ -503,7 +501,7 @@
           </button>
           <div class="faq-body mt-4 pr-10">
             <div>
-              <p class="text-gray-400 text-lg leading-relaxed">
+              <p class="text-gray-400 text-md lg:text-lg leading-relaxed">
                 Refunds are typically processed within 3–5 business days. You can track the status of your refund in the
                 transactions section of your account.
               </p>
@@ -520,7 +518,7 @@
           </button>
           <div class="faq-body mt-4 pr-10">
             <div>
-              <p class="text-gray-400 text-lg leading-relaxed">
+              <p class="text-gray-400 text-md lg:text-lg leading-relaxed">
                 You can add money to your account via bank transfer, debit card, or by linking an external account in
                 the funding section of your dashboard.
               </p>
@@ -534,23 +532,23 @@
 
 
   <!-- ── CTA BANNER ── -->
-  <section class="max-w-[1320px] mx-auto px-6 md:px-10  py-8">
-    <div class="bg-forest  overflow-hidden relative flex flex-col md:flex-row items-stretch min-h-[320px]">
+  <section class="max-w-[1320px] mx-auto px-6 lg:px-10 md:py-8">
+    <div class="bg-forest overflow-hidden relative flex flex-col md:flex-row lg:items-stretch min-h-[320px]">
 
       <!-- Left content -->
-      <div class="flex-1 p-10 md:p-14 flex flex-col justify-center relative z-10">
-        <h2 class="text-4xl md:text-5xl lg:text-6xl text-white font-medium leading-[1.1] mb-5">
-          Change the Way You<br />
+      <div class="flex-1 p-6 sm:p-10 md:p-14 flex flex-col justify-center text-center md:text-start relative z-10">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-6xl text-white font-medium leading-[1.1] mb-2 lg:mb-5">
+          Change the Way You <br class="hidden min-[400px]:block md:hidden lg:block"/>
           Use Your <em class="font-serif" style="font-style:italic;">Money</em>
         </h2>
-        <p class="text-white/80 text-lg leading-relaxed max-w-lg mb-8">
+        <p class="text-white/80 text-md lg:text-lg leading-relaxed max-w-lg mb-5 md:mb-8 mx-auto md:mx-0">
           Join over million people who choose Ascone for fast and secure future banking.
         </p>
         <div>
           <a href="#"
-            class="w-fit inline-block bg-white text-forest text-lg font-medium rounded-full px-7 py-3 flex items-center gap-1 hover:bg-white/90 transition-colors">
+            class="w-fit inline-block bg-white text-forest text-md lg:text-lg font-medium rounded-full px-4 lg:px-6 py-3 flex items-center gap-1 hover:bg-white/90 transition-colors mx-auto md:mx-0">
             Get Started Now
-            <span> <svg class="w-[18px] h-[18px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+            <span> <svg class="w-4 sm:w-[18px] h-4 sm:h-[18px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="m9 18 6-6-6-6"></path>
               </svg></span>
@@ -559,10 +557,10 @@
       </div>
 
       <!-- Right image placeholder -->
-      <div class=" shrink-0 relative flex flex-col  items-center">
-        <img src="./assets/images/star.png" alt="star" class="max-w-[250px] py-4">
-        <div class="bg-[#eaede5] rounded-tr-[100px] pt-14">
-          <img src="./assets/images/cta.png" alt="img" class="max-w-[350px] -mb-[80px]">
+      <div class=" shrink-0 relative flex flex-col items-center justify-end">
+        <img src="./assets/images/star.png" alt="star" class="hidden md:block max-w-[250px] py-4">
+        <div class="bg-[#eaede5] rounded-tr-[100px] pt-14 overflow-hidden">
+          <img src="./assets/images/cta.png" alt="img" class="max-w-full min-[400px]:max-w-[300px] lg:max-w-[350px] -mb-[80px]">
         </div>
       </div>
 
@@ -570,54 +568,54 @@
   </section>
 
   <!-- ── FOOTER ── -->
-  <footer class="max-w-[1320px] mx-auto px-6 md:px-10  pt-14 pb-6">
+  <footer class="max-w-[1320px] mx-auto px-6 lg:px-10 pt-14 pb-6 ">
 
     <!-- Top: links + brand -->
-    <div class="flex flex-col lg:flex-row gap-12 lg:gap-8 pb-12 border-b border-gray-100">
+    <div class="flex flex-col md:flex-row gap-8 pb-12 pt-12 border-b border-gray-100 border-t border-gray-200">
 
       <!-- Nav columns -->
-      <div class="flex-1 grid grid-cols-2 sm:grid-cols-4 gap-8">
+      <div class="flex-1 grid grid-cols-2 sm:grid-cols-4 gap-5">
 
         <!-- Account -->
         <div>
-          <p class="text-forest text-lg font-semibold mb-4">Account</p>
+          <p class="text-forest text-md md:text-lg font-semibold mb-4">Account</p>
           <ul class="space-y-2.5">
-            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Saving</a></li>
-            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Join Accounts</a></li>
-            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Crypto</a></li>
-            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Freelance</a></li>
-            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Commodities</a></li>
+            <li><a href="#" class="text-gray-500 text-sm md:text-md hover:text-forest transition-colors">Saving</a></li>
+            <li><a href="#" class="text-gray-500 text-sm md:text-md hover:text-forest transition-colors">Join Accounts</a></li>
+            <li><a href="#" class="text-gray-500 text-sm md:text-md hover:text-forest transition-colors">Crypto</a></li>
+            <li><a href="#" class="text-gray-500 text-sm md:text-md hover:text-forest transition-colors">Freelance</a></li>
+            <li><a href="#" class="text-gray-500 text-sm md:text-md hover:text-forest transition-colors">Commodities</a></li>
           </ul>
         </div>
 
         <!-- Help -->
         <div>
-          <p class="text-forest text-lg font-semibold mb-4">Help</p>
+          <p class="text-forest text-md md:text-lg font-semibold mb-4">Help</p>
           <ul class="space-y-2.5">
-            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Customer Help</a></li>
-            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Community</a></li>
-            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Blog</a></li>
+            <li><a href="#" class="text-gray-500 text-sm md:text-md hover:text-forest transition-colors">Customer Help</a></li>
+            <li><a href="#" class="text-gray-500 text-sm md:text-md hover:text-forest transition-colors">Community</a></li>
+            <li><a href="#" class="text-gray-500 text-sm md:text-md hover:text-forest transition-colors">Blog</a></li>
           </ul>
         </div>
 
         <!-- Finance -->
         <div>
-          <p class="text-forest text-lg font-semibold mb-4">Finance</p>
+          <p class="text-forest text-md md:text-lg font-semibold mb-4">Finance</p>
           <ul class="space-y-2.5">
-            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Cards</a></li>
-            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Linked Accounts</a></li>
-            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Payment</a></li>
+            <li><a href="#" class="text-gray-500 text-sm md:text-md hover:text-forest transition-colors">Cards</a></li>
+            <li><a href="#" class="text-gray-500 text-sm md:text-md hover:text-forest transition-colors">Linked Accounts</a></li>
+            <li><a href="#" class="text-gray-500 text-sm md:text-md hover:text-forest transition-colors">Payment</a></li>
           </ul>
         </div>
 
         <!-- Company -->
         <div>
-          <p class="text-forest text-lg font-semibold mb-4">Company</p>
+          <p class="text-forest text-md md:text-lg font-semibold mb-4">Company</p>
           <ul class="space-y-2.5">
-            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">About Us</a></li>
-            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Contact</a></li>
-            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Sustainability</a></li>
-            <li><a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Career</a></li>
+            <li><a href="#" class="text-gray-500 text-sm md:text-md hover:text-forest transition-colors">About Us</a></li>
+            <li><a href="#" class="text-gray-500 text-sm md:text-md hover:text-forest transition-colors">Contact</a></li>
+            <li><a href="#" class="text-gray-500 text-sm md:text-md hover:text-forest transition-colors">Sustainability</a></li>
+            <li><a href="#" class="text-gray-500 text-sm md:text-md hover:text-forest transition-colors">Career</a></li>
           </ul>
         </div>
 
@@ -625,11 +623,11 @@
 
       <!-- Brand + address -->
       <div class="lg:w-72 shrink-0">
-        <p class="font-sans text-6xl md:text-7xl font-semibold text-forest tracking-tight leading-none mb-6">
+        <p class="font-sans text-[36px] sm:text-[42px] md:text-[52px] lg:text-[60px] xl:text-[72px] font-semibold text-forest tracking-tight leading-none mb-3 sm:mb-6">
           Ascone
         </p>
         <div class="flex flex-col gap-0">
-          <p class="text-gray-500 text-md leading-relaxed">
+          <p class="text-gray-500 text-sm md:text-md leading-relaxed">
             181 Bay Street Bay Wellington Tower,<br />
             Suite 292 Toronto,<br />
             Ontario M5J 2T3
@@ -641,11 +639,11 @@
     </div>
 
     <!-- Bottom bar -->
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-5">
-      <p class="text-gray-400 text-md">© Ascone Finance Ltd 2026</p>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-5">
+      <p class="text-gray-400 text-sm md:text-md">© Ascone Finance Ltd 2026</p>
       <div class="flex items-center gap-6">
-        <a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Privacy Policy</a>
-        <a href="#" class="text-gray-500 text-md hover:text-forest transition-colors">Terms of Use</a>
+        <a href="#" class="text-gray-500 text-sm md:text-md hover:text-forest transition-colors">Privacy Policy</a>
+        <a href="#" class="text-gray-500 text-sm md:text-md hover:text-forest transition-colors">Terms of Use</a>
       </div>
     </div>
 
