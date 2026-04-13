@@ -3,6 +3,29 @@ function closeBar() {
     document.getElementById('announcement-bar').classList.add('hidden');
 }
 
+// sticky header-----------
+const navbar = document.getElementById('navbar');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+      navbar.classList.add(
+        'bg-white/70',
+        'backdrop-blur-md',
+        'shadow-sm',
+        'border-b',
+        'border-white/20'
+      );
+    } else {
+      navbar.classList.remove(
+        'bg-white/70',
+        'backdrop-blur-md',
+        'shadow-sm',
+        'border-b',
+        'border-white/20'
+      );
+    }
+  });
+
 
 //   navbar----------------
  const menuBtn = document.getElementById("menuBtn");
@@ -62,3 +85,18 @@ function toggleFaq(btn) {
         icon.style.fontSize = '22px';
     }
 }
+
+
+// scroll to top button
+
+  const btn = document.getElementById('back-to-top');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      btn.classList.remove('opacity-0', 'pointer-events-none');
+      btn.classList.add('opacity-100', 'pointer-events-auto');
+    } else {
+      btn.classList.add('opacity-0', 'pointer-events-none');
+      btn.classList.remove('opacity-100', 'pointer-events-auto');
+    }
+  });

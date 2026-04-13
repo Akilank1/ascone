@@ -48,7 +48,7 @@
   </script>
 </head>
 
-<body class="font-sans bg-white text-forest antialiased overflow-x-hidden">
+<body class="font-sans bg-white text-forest antialiased overflow-x-hidden relative">
 
   <!-- ── Announcement Bar ── -->
   <div id="announcement-bar"
@@ -67,8 +67,8 @@
 
 
   <!-- ── Navbar ── -->
-  <nav class="max-w-[1320px] mx-auto flex items-center justify-between px-6 lg:px-10 py-4 relative z-50">
-
+  <nav id="navbar" class="sticky top-0 z-50 transition-all duration-300">
+    <div class="max-w-[1320px] mx-auto flex items-center justify-between px-6 lg:px-10 py-4">
     <!-- Logo -->
     <span class="text-2xl font-semibold tracking-tight text-forest">Ascone</span>
 
@@ -84,12 +84,12 @@
     <div class="flex items-center gap-4">
       <a href="#" class="hidden md:inline text-gray-600 hover:text-forest font-medium text-md xl:text-lg">Login</a>
 
-      <a href="#" class="hidden md:flex bg-forest text-white rounded-full px-5 py-2.5 items-center gap-1 text-md xl:text-lg">
-        Sign Up
-        <svg class="w-[16px] lg:w-[18px] h-[16px] lg:h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-width="2" d="m9 18 6-6-6-6" />
-        </svg>
-      </a>
+      <a href="#" class="group hidden md:flex bg-forest text-white rounded-full px-5 py-2.5 items-center gap-1 text-md xl:text-lg">
+  Sign Up
+  <svg class="w-[16px] lg:w-[18px] h-[16px] lg:h-[18px] transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-width="2" d="m9 18 6-6-6-6" />
+  </svg>
+</a>
 
       <!-- Hamburger -->
       <button id="menuBtn" class="md:hidden z-50">
@@ -98,6 +98,7 @@
         </svg>
       </button>
     </div>
+</div>
   </nav>
 
   <!-- Backdrop -->
@@ -164,9 +165,9 @@
 
       <div class="animate-fade-up-4 flex flex-col sm:flex-row items-start sm:items-center gap-6 mx-auto md:mx-0">
         <a href="#"
-          class="bg-forest text-white text-md lg:text-lg font-medium rounded-full px-4 lg:px-6 py-3 flex items-center gap-1 hover:opacity-90 transition-opacity">
+          class="group bg-forest text-white text-md lg:text-lg font-medium rounded-full px-4 lg:px-6 py-3 flex items-center gap-1">
           Get Started Now
-          <span> <svg class="w-[18px] h-[18px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+          <span> <svg class="w-4 sm:w-[18px] h-4 sm:h-[18px] transition-transform duration-300 group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
               class="lucide lucide-chevron-right-icon lucide-chevron-right">
               <path d="m9 18 6-6-6-6" />
@@ -300,13 +301,11 @@
           </div>
           <!-- Arrow button -->
           <div class="mt-8 lg:mt-14">
-            <button
-              class="w-10 lg:w-14 h-10 lg:h-14 rounded-full border border-gray-200 flex items-center justify-center hover:bg-forest hover:border-forest group transition-colors duration-300">
-              <svg class="w-4 lg:w-5 h-4 lg:h-5" viewBox="0 0 24 24" fill="none">
-                <path d="M7 17L17 7M17 7H8M17 7V16" stroke="#1a3c34" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" class="group-hover:stroke-white transition-colors" />
-              </svg>
-            </button>
+           <button class="w-10 lg:w-14 h-10 lg:h-14 rounded-full border border-gray-200 flex items-center justify-center hover:bg-forest hover:border-forest group transition-colors duration-300">
+  <svg class="w-4 lg:w-5 h-4 lg:h-5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none">
+    <path d="M7 17L17 7M17 7H8M17 7V16" stroke="#1a3c34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:stroke-white transition-colors"/>
+  </svg>
+</button>
           </div>
         </div>
 
@@ -331,8 +330,8 @@
           </div>
           <div class="mt-8 lg:mt-14">
             <button
-              class="w-10 lg:w-14 h-10 lg:h-14 rounded-full border border-gray-200 flex items-center justify-center hover:bg-forest hover:border-forest group transition-colors duration-300">
-              <svg class="w-4 lg:w-5 h-4 lg:h-5" viewBox="0 0 24 24" fill="none">
+              class="group w-10 lg:w-14 h-10 lg:h-14 rounded-full border border-gray-200 flex items-center justify-center hover:bg-forest hover:border-forest group transition-colors duration-300">
+              <svg class="w-4 lg:w-5 h-4 lg:h-5  transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none">
                 <path d="M7 17L17 7M17 7H8M17 7V16" stroke="#1a3c34" stroke-width="2" stroke-linecap="round"
                   stroke-linejoin="round" class="group-hover:stroke-white transition-colors" />
               </svg>
@@ -359,8 +358,8 @@
           </div>
           <div class="mt-8 lg:mt-14">
             <button
-              class="w-10 lg:w-14 h-10 lg:h-14 rounded-full bg-forest flex items-center justify-center hover:opacity-80 transition-opacity duration-300">
-              <svg class="w-4 lg:w-5 h-4 lg:h-5" viewBox="0 0 24 24" fill="none">
+              class="group w-10 lg:w-14 h-10 lg:h-14 rounded-full bg-forest flex items-center justify-center">
+              <svg class="w-4 lg:w-5 h-4 lg:h-5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none">
                 <path d="M7 17L17 7M17 7H8M17 7V16" stroke="white" stroke-width="2" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg>
@@ -546,9 +545,9 @@
         </p>
         <div>
           <a href="#"
-            class="w-fit inline-block bg-white text-forest text-md lg:text-lg font-medium rounded-full px-4 lg:px-6 py-3 flex items-center gap-1 hover:bg-white/90 transition-colors mx-auto md:mx-0">
+            class="group w-fit inline-block bg-white text-forest text-md lg:text-lg font-medium rounded-full px-4 lg:px-6 py-3 flex items-center gap-1 mx-auto md:mx-0">
             Get Started Now
-            <span> <svg class="w-4 sm:w-[18px] h-4 sm:h-[18px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+            <span> <svg class="w-4 sm:w-[18px] h-4 sm:h-[18px]  transition-transform duration-300 group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="m9 18 6-6-6-6"></path>
               </svg></span>
@@ -648,6 +647,14 @@
     </div>
 
   </footer>
+  <button
+  id="back-to-top"
+  onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+  class="fixed bottom-6 right-6 z-50 w-11 h-11 bg-forest text-white rounded-lg flex items-center justify-center shadow-lg opacity-0 pointer-events-none transition-all duration-300 group">
+  <svg class="w-5 h-5 transition-transform duration-300 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
+  </svg>
+</button>
   <script src="./assets//script/main.js"></script>
 
 </body>
